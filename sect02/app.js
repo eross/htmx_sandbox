@@ -29,22 +29,21 @@ app.get('/', (req, res) => {
 
         <main>
           <p>HTMX is a JavaScript library that you use without writing JavaScript code.</p>
-          <button 
-          hx-get="/info" 
-          hx-trigger="mouseenter[ctrlKey] once delay:1s"
-          hx-target="main"
-          hx-swap="beforeend">Learn More</button>
+          <form>
+            <p>
+              <label for="note">Your note</label>
+              <input type="text" id="note" name="note">
+            </p>
+            <p>
+              <button>Save Note</button>
+            </p>
+          </form>
+          <ul>
+            ${HTMX_KNOWLEDGE.map((info) => `<li>${info}</li>`).join('')}
+          </ul>
         </main>
       </body>
     </html>
-  `);
-});
-
-app.get('/info', (req, res) => {
-  res.send(`
-  <ul>
-    ${HTMX_KNOWLEDGE.map(info => `<li>${info}</li>`).join('')}
-  </ul>
   `);
 });
 
