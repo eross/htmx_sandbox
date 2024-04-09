@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <title>App</title>
+    <script src="htmx.js"></script>
+</head>
+<body>
+    This is App.
+    <div>
+        <button class="btn"
+            hx-post="/button"
+            hx-prompt="Enter a string"
+            hx-confirm="Are you sure?"
+            hx-target="#response">
+            Submit with prompt.
+        </button>
+        <div id="response">Hi There</div>
+    </div>
+</body>
+</html>
